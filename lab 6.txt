@@ -1,0 +1,20 @@
+Lab6: Creating and Connecting to a Linux Virtual Machine with Azure CLI
+Create a resource group
+
+az group create --name myResourceGroup --location eastus
+
+Create virtual machine
+az vm create   --resource-group myResourceGroup   --name myVM   --image UbuntuLTS  --admin-username azureuser   --generate-ssh-keys
+
+Open port 80 for web traffic
+
+az vm open-port --port 80 --resource-group myResourceGroup --name myVM
+
+Connect to virtual machine
+
+ssh azureuser@13.92.103.167
+
+Install web server
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
